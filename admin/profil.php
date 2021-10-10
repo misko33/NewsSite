@@ -1,0 +1,1 @@
+<h2>Profil korisnika: <?php echo $korisnik->getKorisnickoIme();?></h2>
