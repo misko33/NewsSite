@@ -9,16 +9,14 @@ if (isset($_GET['page'])) {
 
 if ($korisnik->jePrijavljen()) {
   if (!$korisnik->imaDozvolu()) {
-    header("location: index.php");
+    header("location: login.php");
     exit;
-  }
-  else {
-    if(!isset($_GET['page'])) $page = 'home';  
   }
 } else {
   header("location: login.php");
   exit;
 }
+
 ?>
 
 <!doctype html>
@@ -49,21 +47,16 @@ if ($korisnik->jePrijavljen()) {
       </button>
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item">
-            <a
-            <?php if($page == 'home') {
-              ?> class="nav-link active "<?php } else ?> class="nav-link" href="?page=home">Naslovna</a>
+          <li class="nav-item active">
+            <a class="nav-link" href="?page=home">Naslovna <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a
-            <?php if($page == 'clanci') {
-              ?> class="nav-link active" <?php } else ?> class="nav-link" href="?page=clanci">Vijesti</a>
+            <a class="nav-link" href="?page=clanci">Vijesti</a>
           </li>
           <li class="nav-item">
-            <a 
-            <?php if($page == 'korisnici') {
-              ?> class="nav-link active" <?php } else ?> class="nav-link" href="?page=korisnici">Korisnici</a>
-          </li>
+            <a class="nav-link" href="?page=korisnici">Korisnici</a>
+     
+
         </ul>
 
         <ul class="navbar-nav my-2 my-lg-0">
