@@ -1,31 +1,30 @@
 html {
-    position: relative;
-    min-height: 100%;
-  }
-  body {
-    margin-bottom: 60px;
-  }
-  .footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    line-height: 60px; 
-    height: 60px;
-    background-color: #ffffff;
-    color: #ffffff; 
-    text-align:center;
-  }
-  
-  body > .container {
-    padding: 60px 15px 0;
-  }
-  
-  .footer > .container {
-    padding-right: 15px;
-    padding-left: 15px;
-  }
-  
-  code {
-    font-size: 80%;
-  }
-  
+  position: relative;
+  min-height: 100%;
+}
+body {
+  margin-bottom: 60px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  line-height: 60px; 
+  height: 60px;
+  background-color: #ffffff;
+  color: #ffffff; 
+  text-align:center;
+}
+
+body > .container {
+  padding: 60px 15px 0;
+}
+
+.footer > .container {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+code {
+  font-size: 80%;
+}

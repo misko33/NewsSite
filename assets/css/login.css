@@ -1,32 +1,32 @@
 body {
-    margin: 0;
-    padding: 0px;
-    background-color: #ffffff;  
-    
-    height: 100vh;
-  }
-  #login .container #login-row #login-column #login-box {
-    max-width: 600px;
-    min-height: 320px;
-    border: 1px solid #9C9C9C;
-    background-color: #EAEAEA;
-  }
-  #login .container #login-row #login-column #login-box #login-form {
-    padding: 20px;
-  }
-
-  .btn-custom {
-      background-color: #283E51;
-      color: #ffffff; 
-  }
+  margin: 0;
+  padding: 0px;
+  background-color: #ffffff;  
   
-  .bojaPoruke{
-	  color: red;
-  }
+  height: 100vh;
+}
+#login .container #login-row #login-column #login-box {
+  max-width: 600px;
+  min-height: 320px;
+  border: 1px solid #9C9C9C;
+  background-color: #EAEAEA;
+}
+#login .container #login-row #login-column #login-box #login-form {
+  padding: 20px;
+}
 
-  .text-custom {
-      color: #283E51; 
-  }
-  .register .nav-tabs .nav-link:hover{
-    border: none;
+.btn-custom {
+  background-color: #283E51;
+  color: #ffffff; 
+}
+
+.bojaPoruke {
+  color: red;
+}
+
+.text-custom {
+  color: #283E51; 
+}
+.register .nav-tabs .nav-link:hover {
+  border: none;
 }

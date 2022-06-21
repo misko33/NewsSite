@@ -1,6 +1,6 @@
 <header>
     <div class="inner-wrapper">
-		<nav class="navbar navbar-expand-lg navbar-light">
+		<nav class="navbar navbar-expand-lg navbar-light" style="border-bottom: solid;">
 						<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 						  <span class="navbar-toggler-icon"></span>
 						</button>
