@@ -57,9 +57,5 @@ class baza {
     public function __destruct() {
 		$this->veza->close();
 	}
-
-
-
-
 }
 ?>

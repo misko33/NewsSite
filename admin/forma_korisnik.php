@@ -1,6 +1,16 @@
 <form method="post" enctype="multipart/form-data" action="" name="forma_korisnik">
 
     <input type="hidden" name="uid" value="<?php echo isset($user) ? $user['id'] : '';  ?>">
+    <?php
+    if(isset($_SESSION["poruka-false"])) { ?>
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <?php echo $_SESSION["poruka-false"]; ?>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    <?php 
+    unset($_SESSION['poruka-false']); } ?>
 
     <div class="form-group">
         <label for="ime">Ime</label>

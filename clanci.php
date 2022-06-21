@@ -1,9 +1,9 @@
 <?php 
 if(isset($_GET['page']) && $_GET['page'] == 'clanci') {
-    if(isset($_GET['kat'])){ 
+    if(isset($_GET['kat'])) { 
         $kategorija = clean($_GET['kat']);
 
-        if(isset($_GET['cid'])){
+        if(isset($_GET['cid'])) {
             $clanak_id = clean($_GET['cid']);
             
             $clanak_data = $clanak->getClanak($clanak_id);
@@ -12,7 +12,7 @@ if(isset($_GET['page']) && $_GET['page'] == 'clanci') {
             if(isset($clanak_data['slika']) && !empty($clanak_data['slika'])){
                 $slika = $clanak_data['slika'];
             }
-?>
+    ?>
 
         <section class="<?php echo strtolower($kategorija); ?> clanak">
             <div class="section-content">

@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `clanak` (
   `id` int(11) NOT NULL,
-  `datum` date NOT NULL DEFAULT current_timestamp(),
+  `datum` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   `naslov` varchar(64) COLLATE latin2_croatian_ci NOT NULL,
   `sazetak` text COLLATE latin2_croatian_ci NOT NULL,
   `tekst` text COLLATE latin2_croatian_ci NOT NULL,

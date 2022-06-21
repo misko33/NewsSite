@@ -6,7 +6,7 @@ $br_clanaka = 3;
     <div class="section-content">
         <ul class="articles">
 			<div class="section-heading">
-				<h2 class="section-title"><a href="?page=clanci&kat=politika" class="heading-link">Politik</a></h2>
+				<h2 class="section-title text"><a href="?page=clanci&kat=politika" class="heading-link">Politik</a></h2>
 			</div>
 			<?php 
 				$clanci = $clanak->getClanci('politika'); 
@@ -21,8 +21,9 @@ $br_clanaka = 3;
 						if($count === $br_clanaka) {
 							break;
 						}
-					} 
-				} else {
+					}
+				}
+				else {
 					echo "<li>" ;
 					echo "Trenutno nema clanaka u kategoriji"; 
 					echo "</li>";
@@ -37,7 +38,7 @@ $br_clanaka = 3;
     <div class="section-content">
         <ul class="articles">
 			<div class="section-heading">
-				<h2 class="section-title"><a href="?page=clanci&kat=sport" class="heading-link">Sport</a></h2>
+				<h2 class="section-title text"><a href="?page=clanci&kat=sport" class="heading-link">Sport</a></h2>
 			</div>
 			<?php 
 				$clanci = $clanak->getClanci('sport'); 
@@ -53,7 +54,8 @@ $br_clanaka = 3;
 							break;
 						}
 					} 
-				} else {
+				}
+				else {
 					echo "<li>" ;
 					echo "Trenutno nema clanaka u kategoriji"; 
 					echo "</li>";

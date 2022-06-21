@@ -1,8 +1,8 @@
 <?php
-    echo 'Kategorija sadržaj'; 
+  echo 'Kategorija sadržaj'; 
 
-    if(isset($_GET['naziv'])) {
-        $naziv_kategorije = clean($_GET['naziv']); 
-    }
+  if(isset($_GET['naziv'])) {
+    $naziv_kategorije = clean($_GET['naziv']); 
+  }
 
 ?>
