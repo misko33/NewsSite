@@ -5,6 +5,7 @@ html {
 body {
   margin-bottom: 60px;
 }
+
 .footer {
   position: absolute;
   bottom: 0;
@@ -27,4 +28,13 @@ body > .container {
 
 code {
   font-size: 80%;
+}
+
+.authTable {
+  height: 40%;
+  overflow: auto;
+}
+
+.titleLogin {
+  padding: 30px;
 }
