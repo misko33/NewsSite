@@ -9,11 +9,10 @@ if (cid != null) {
 	document.body.style.backgroundColor = "#EAEAEA";
 }
 
-if (kat != null) {
-	document.getElementById(kat).style.textDecoration = "underline";
-}
-
-
+$(window).on("load resize ", function() {
+	var scrollWidth = $('.tbl-content').width() - $('.tbl-content table').width();
+	$('.tbl-header').css({'padding-right':scrollWidth});
+  }).resize();
 
 
 

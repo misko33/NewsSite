@@ -78,8 +78,9 @@ class User {
       return true;
     }
   }
+  
   public function all_log_auth() {
-    $sql = "SELECT * FROM log_auth ;";
+    $sql = "SELECT * FROM log_auth ORDER BY Datum DESC;";
     $query = $this->db->query($sql);
 
     $log = array(); 
@@ -88,6 +89,7 @@ class User {
     }
     return $log;
   }
+
   public function get_log_auth($id) {
     $sql = "SELECT * FROM log_auth WHERE id =" . (int)$id;
     $query = $this->db->query($sql);

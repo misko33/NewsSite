@@ -4,7 +4,7 @@ body {
     background-color: rgb(239, 239, 239);
 }
 
-td {
+.innertd {
 	height: 80px;
 	width: 160px;
 	text-align: center;
@@ -53,15 +53,11 @@ section.sport, section.politika {
 	height: 10px;
 	width: 80%;
     color: #ffffff;
-    padding: 0px 0px;
-
-	background: linear-gradient(to right, black 50%, white 50%);
-	background-size: 200% 100%;
-	background-position: right bottom;
-	transition: all .5s ease-out;
+    padding: 20px 0px;
 }
-.section-heading:hover {
-	background-position: left bottom;
+
+.section-heading:hover .heading-link{
+	color: #ffffff;
 }
 
 h2.section-title { 
@@ -73,6 +69,8 @@ h2.section-title {
 	font-family: helvetica neue,helvetica,sans-serif;
 	text-decoration: none;
 	text-transform: uppercase;
+	height: 30px;
+	margin-right: 20px;
 
 	background: linear-gradient(to right, black 50%, white 50%);
 	background-size: 200% 100%;
@@ -86,10 +84,19 @@ h2.section-title {
 }
 
 .heading-link {
-    color: black;
+	color: black;
+    width: 100%;
+    text-align: center;
+    height: 100%;
+	display: flex;
+	justify-content: center;
+	align-content: center;
+	flex-direction: column;
 }
+
 .heading-link:hover {
 	color: white;
+	text-decoration: none;
 }
 
 .articles {
@@ -194,4 +201,12 @@ ul.articles {
 	background-color: rgb(227, 227, 227);
 	height: 120px;
 	padding-top: 40px;
+}
+
+.articles li {
+	padding-top: 20px;
+}
+
+.articles li:hover {
+	background-color:#efefef;
 }
