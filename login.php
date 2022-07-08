@@ -24,10 +24,13 @@ $_SESSION["active-page"] = "prijava";
         <ul class="nav nav-tabs" id="myTab" role="tablist">
             <li class="nav-item">
               <a class="nav-link " id="prijava-tab" data-toggle="tab" href="#prijava" role="tab" aria-controls="prijava" aria-selected="true">Prijava</a>
-                </li>
-                  <li class="nav-item">
-                    <a class="nav-link" id="registracija-tab" data-toggle="tab" href="#registracija" role="tab" aria-controls="registracija" aria-selected="false">Registracija</a>
-                  </li>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="registracija-tab" data-toggle="tab" href="#registracija" role="tab" aria-controls="registracija" aria-selected="false">Registracija</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="home-tab" href="../NewsSite/" role="tab" aria-controls="home" aria-selected="false">Home</a>
+            </li>
         </ul>
           <div class="tab-content" id="myTabContent">
 
@@ -36,21 +39,27 @@ $_SESSION["active-page"] = "prijava";
               if (isset($_POST['prijava'])) {
                 $username = $_POST['username'];
                 $password = $_POST['password'];
-
-                $prijava = $korisnik->login($username, $password);
-
-                if ($prijava) {
-                  if ($korisnik->imaDozvolu()) {
-                    header("location: admin.php?page=home");
-                  }
-                  else {
-                    header("location: index.php");
-                  }
-                }
-                else {
-                  $_SESSION["poruka-false"] = "Neispravana lozinka ili korisničko ime";
+                
+                if(!$korisnik->checkLogInAttempts($username)) {
+                  $_SESSION["poruka-false"] = "Previše pokušaja prijave.";
                   $_SESSION["active-page"] = "prijava";
                 }
+                else {
+                  $prijava = $korisnik->login($username, $password);
+
+                  if ($prijava) {
+                    if ($korisnik->imaDozvolu()) {
+                      header("location: admin.php?page=home");
+                    }
+                    else {
+                      header("location: index.php");
+                    }
+                  }
+                  else {
+                    $_SESSION["poruka-false"] = "Neispravana lozinka ili korisničko ime";
+                    $_SESSION["active-page"] = "prijava";
+                  }
+                }                
               }
 
               else if (isset($_POST['registracija'])) {
@@ -79,22 +88,22 @@ $_SESSION["active-page"] = "prijava";
               }
 
               if(isset($_SESSION["poruka-true"])) { ?>
-                  <div class="alert alert-success alert-dismissible fade show" role="alert">
-                      <?php echo $_SESSION["poruka-true"]; ?>
-                      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                      </button>
-                  </div>
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <?php echo $_SESSION["poruka-true"]; ?>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
               <?php
               unset($_SESSION['poruka-true']); 
               }
               if(isset($_SESSION["poruka-false"])) { ?>
-                  <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                      <?php echo $_SESSION["poruka-false"]; ?>
-                      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                      </button>
-                  </div>
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <?php echo $_SESSION["poruka-false"]; ?>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
               <?php 
               unset($_SESSION['poruka-false']); 
           } ?>

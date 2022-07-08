@@ -30,11 +30,26 @@ code {
   font-size: 80%;
 }
 
-.authTable {
-  height: 40%;
-  overflow: auto;
+.titleLogin {
+  padding: 10px;
 }
 
-.titleLogin {
-  padding: 30px;
+.tableFix {
+  overflow: auto;
+  height: 70vh;
+}
+
+.table thead th {
+  position: sticky;
+  top: -2px; z-index: 1;
+}
+
+.table td {
+  padding: 0.3em;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.table th {
+  background:#fff;
 }

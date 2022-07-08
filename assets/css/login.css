@@ -30,3 +30,13 @@ body {
 .register .nav-tabs .nav-link:hover {
   border: none;
 }
+
+.nav-tabs {
+  margin-bottom: 20px;
+}
+
+#home-tab {
+  position: absolute;
+  right: 14px;
+  top: 0px;
+}

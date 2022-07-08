@@ -1,8 +1,4 @@
 <?php 
-mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
 
 class User {
 
@@ -85,27 +81,24 @@ class User {
 
     $log = array(); 
     foreach($query->rows as $rezultat) {
-      $log[$rezultat['id']] = $this->get_log_auth($rezultat['id']); 
+      $log[] = [
+        'id'          => $rezultat['id'],
+        'username'    => $rezultat['UserName'],
+        'useragent'   => $rezultat['UserAgent'],
+        'ip'          => $rezultat['IP'],
+        'datum'       => $rezultat['Datum'],
+        'islogin'     => $rezultat['isLogin'],
+      ];
     }
     return $log;
   }
 
-  public function get_log_auth($id) {
-    $sql = "SELECT * FROM log_auth WHERE id =" . (int)$id;
+  public function checkLogInAttempts($username) {
+    $sql = "SELECT COUNT(*) as attempts FROM log_auth WHERE UserName = '" . $username . "' AND IP ='" . $_SERVER['REMOTE_ADDR'] . "'";
+    $sql .= " AND Datum > '" . strval(date("Y-m-d H:i:s", strtotime("-1 hours"))) . "';";
     $query = $this->db->query($sql);
-    if ($query->num_rows) {
-      return array(
-        'id'          => $query->row['id'],
-        'username'    => $query->row['UserName'],
-        'useragent'   => $query->row['UserAgent'],
-        'ip'          => $query->row['IP'],
-        'datum'       => $query->row['Datum'],
-        'islogin'     => $query->row['isLogin'],
-      ); 
-    }
-    else {
-      return false; 
-    }
+
+    return ($query->rows[0]['attempts'] < 5);
   }
 
   public function addUser($data) {
@@ -232,4 +225,5 @@ class User {
     }
   }
 }
+
 ?>

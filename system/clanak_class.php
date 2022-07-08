@@ -106,4 +106,31 @@ class Clanak {
     echo $out;
   }
 
+  public function addComment($data) {
+    $sql = " INSERT INTO Comments ( clanakId, userId, userName, commText, datum ) VALUES (?, ?, ?, ?, ?);";
+    $stmt = mysqli_stmt_init($this->db->getVeza());
+    if (mysqli_stmt_prepare($stmt, $sql)) {
+      mysqli_stmt_bind_param($stmt, 'iisss', $data['clanakId'], $data['userId'], $data['userName'], $data['commText'], $data['datum']);
+      mysqli_stmt_execute($stmt);
+    }
+    return true;
+  }
+
+  public function getComments($clanak_id) {
+    $sql = "SELECT * FROM Comments WHERE clanakId = " . $clanak_id;
+
+    $query = $this->db->query($sql);
+
+    $comm = array(); 
+    foreach($query->rows as $rezultat) {
+      $comm[] = [
+        'clanakid'          => $rezultat['clanakId'],
+        'userid'            => $rezultat['userId'],
+        'username'          => $rezultat['userName'],
+        'text'              => $rezultat['commText'],
+        'datum'             => $rezultat['datum'],
+      ];
+    }  
+    return $comm;
+  }
 }

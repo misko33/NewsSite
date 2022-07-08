@@ -26,7 +26,7 @@ if(isset($_GET['kat'])) {
 								<li class="nav-item">
 									<?php if($korisnik->jePrijavljen()) {
 										// korisnik je prijavljen
-										if($korisnik->imaDozvolu()){
+										if($korisnik->imaDozvolu()) {
 											// daj mu admin link
 											echo '<a class="nav-link" href="./admin.php">Administracija</a>'; 
 										} else {
@@ -44,6 +44,7 @@ if(isset($_GET['kat'])) {
 		</nav>
 		<nav class="container text-center logo-navigacija" id="logo-navigacija">
 			<a href="?page=home"><img src="./images/logo.svg" alt="Franffurter Allgemeine" class="d-inline-block align-top" id="page-logo"></a>
+
 		</nav>
 	</div>
 </header>

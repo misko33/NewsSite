@@ -50,10 +50,11 @@ section.sport, section.politika {
 
 .section-heading {
 	/* border-top: 2px solid #000;  */
-	height: 10px;
-	width: 80%;
+	height: 32px;
     color: #ffffff;
-    padding: 20px 0px;
+    padding: 0;
+	margin: 20px 22px 20px 0;
+	width: 120px;
 }
 
 .section-heading:hover .heading-link{
@@ -69,8 +70,9 @@ h2.section-title {
 	font-family: helvetica neue,helvetica,sans-serif;
 	text-decoration: none;
 	text-transform: uppercase;
-	height: 30px;
-	margin-right: 20px;
+	height: 32px;
+	margin-right: 10px;
+	width: 120px;
 
 	background: linear-gradient(to right, black 50%, white 50%);
 	background-size: 200% 100%;
@@ -203,10 +205,99 @@ ul.articles {
 	padding-top: 40px;
 }
 
+.articles {
+	margin: 20px 0 0 0;
+	padding: 0 20px;
+}
+
 .articles li {
 	padding-top: 20px;
 }
 
 .articles li:hover {
 	background-color:#efefef;
+}
+
+.articles {
+	flex-direction: row;
+}
+
+/*******************************************  	      *******************************************/
+/******************************************* COMMENTS *******************************************/
+/*******************************************  	      *******************************************/
+
+.komentariBox {
+	border-top: 1px solid rgb(234, 234, 234);
+	padding: 40px 0;
+}
+
+.countCom {
+	margin-top: 5px;
+	text-align: right;
+	padding-bottom: 20px;
+	font-size: small;
+}
+
+#btn-komentiraj {
+	background-color: #283E51;
+    color: #ffffff;
+}
+
+#addComment {
+	resize: none;
+	width: 100%;
+  	height: 30px;
+	outline: none;
+	border-top: 10px black;
+	border-left: 10px black;
+	border-right: 10px black;
+	overflow: auto;
+}
+
+.userNameComment {
+	font-weight: bold;
+	font-size: small;
+	padding-top: 30px;
+}
+
+.userComment {
+	padding-left: 20px;
+	font-size: small;
+}
+
+.datumComment {
+	font-size: small;
+	text-align: right;
+	border-bottom: 1px solid rgb(234, 234, 234);
+}
+
+
+/*******************************************  	   *******************************************/
+/******************************************* MEDIA *******************************************/
+/*******************************************  	   *******************************************/
+
+@media (max-width: 900px) {
+	.articles {
+	  flex-direction: column;
+	  padding: 0 20%;
+	}
+
+	.section-heading {
+		margin-left: 15px;
+	}
+}
+
+@media (max-width: 550px) {
+	.articles {
+	  flex-direction: column;
+	  padding: 0 10%;
+	}
+
+	.section-heading {
+		margin-left: 15px;
+	}
+
+	.clanak {
+		padding: 0 40px;
+	}
 }
